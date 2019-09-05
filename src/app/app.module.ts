@@ -8,6 +8,9 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {
   MatButtonModule,
   MatCardModule,
@@ -39,6 +42,8 @@ import { ContactComponent } from './contact/contact.component';
     ContactComponent
   ],
   imports: [
+    MatFormFieldModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserModule,
@@ -62,7 +67,8 @@ import { ContactComponent } from './contact/contact.component';
     MatTabsModule,
     MatToolbarModule,
     // Flex-layout
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
