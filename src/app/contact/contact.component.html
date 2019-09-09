@@ -12,36 +12,41 @@
 <mat-card>
 <form class="example-container" [formGroup]="contactForm">
     <mat-form-field >
-        <input matInput type="text" placeholder="הכנס שם פרטי" formControlName="firstName">
+        <input matInput #nameFieldId type="text" placeholder="הכנס שם פרטי" formControlName="firstName">
         <mat-error *ngIf="contactForm.get('firstName').hasError('required')">
             בבקשה הכנס שם פרטי
           </mat-error>
      </mat-form-field>
      <mat-form-field >
-        <input matInput type="text" placeholder="הכנס שם משפחה" formControlName="lastName">
+        <input matInput #familyFieldId type="text" placeholder="הכנס שם משפחה" formControlName="lastName">
         <mat-error *ngIf="contactForm.get('lastName').hasError('required')">
             בבקשה הכנס שם משפחה
           </mat-error>
      </mat-form-field>
      <mat-form-field >
-        <input matInput placeholder="הכנס כתובת מייל" formControlName="emailFC">
+        <input matInput #emailFieldId placeholder="הכנס כתובת מייל" formControlName="emailFC">
         <mat-error *ngIf="contactForm.get('emailFC').hasError('required')">
             בבקשה הכנס כתובת מייל
           </mat-error>
+          <mat-error *ngIf="contactForm.get('emailFC').hasError('email') && !contactForm.get('emailFC').hasError('required')">
+              כתובת מייל לא תקנית
+            </mat-error>
     </mat-form-field>
     <mat-form-field >
-        <input matInput placeholder="הכנס מספר טלפון" formControlName="phoneNumber">
+        <input matInput #phoneFieldId placeholder="הכנס מספר טלפון" formControlName="phoneNumber">
         <mat-error *ngIf="contactForm.get('phoneNumber').hasError('required')">
             בבקשה הכנס מספר טלפון
           </mat-error>
     </mat-form-field>
     <mat-form-field>
-        <textarea matInput placeholder="?מה ברצונך לשאול" formControlName="hodaa"></textarea>
+        <textarea matInput #hodaaFieldId placeholder="?מה ברצונך לשאול" formControlName="hodaa"></textarea>
         <mat-error *ngIf="contactForm.get('hodaa').hasError('required')">
          בבקשה כתוב את שאלתך
           </mat-error>
       </mat-form-field>
-      <button class="button" mat-raised-button [disabled]="!contactForm.valid">שליחה</button>
+      <button class="button" mat-raised-button [disabled]="!contactForm.valid"
+      (click)="contactClickEvent(emailFieldId.value,nameFieldId.value,familyFieldId.value,phoneFieldId.value,hodaaFieldId.value)">
+      שליחה</button>
   </form>
 </mat-card>
 </div>

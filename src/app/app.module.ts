@@ -30,7 +30,6 @@ import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { OnTheSoferComponent } from './on-the-sofer/on-the-sofer.component';
 import { ContactComponent } from './contact/contact.component';
-
 @NgModule({
   declarations: [
     AppComponent,
