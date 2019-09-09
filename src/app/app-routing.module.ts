@@ -8,8 +8,8 @@ import { ProductComponent } from './product/product.component';
 const routes: Routes = [
   { path: 'header', component: HeaderComponent, },
   { path: '', redirectTo: '/header', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent },
- // { path: 'product', component: ProductComponent }
+  { path: 'product', component: ProductComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
